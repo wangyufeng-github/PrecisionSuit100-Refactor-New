@@ -19,7 +19,7 @@ from airtest.core.api import connect_device,G,init_device
 import win32gui
 import psutil
 from configs.config import *
-
+from utils.log import log
 
 def get_window_handle():
     """

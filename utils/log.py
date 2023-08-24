@@ -26,7 +26,7 @@ def logger(fileLog=True, name=__name__):
     # 设置日志级别为INFO
     logObject.setLevel(logging.INFO)
     # 设置日志内容的格式:时间+级别+行号+具体报错信息
-    fmt = "%(asctime)s - %(levelname)s - %(filename)s[%(lineno)d]:%(message)s"
+    fmt = "%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s[%(lineno)d]:%(message)s"
     formater = logging.Formatter(fmt)
 
     # 文件输出

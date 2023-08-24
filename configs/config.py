@@ -12,7 +12,7 @@ root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # air文件路径
 air_path = os.path.join(root_path, 'air')
 # 日志文件路径
-log_path = os.path.join(root_path, 'outFiles\\log')
+log_path = os.path.join(root_path, 'outFiles\\logs')
 # 报告文件路径
 report_path = os.path.join(root_path, 'outFiles\\reports')
 # 截图路径
