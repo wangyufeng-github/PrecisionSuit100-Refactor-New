@@ -1,0 +1,2 @@
+do not connect device
+do not save log

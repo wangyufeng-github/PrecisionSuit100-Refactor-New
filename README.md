@@ -1,0 +1,3 @@
+本测试方案采用pytest测试框架，控件操作利用AirtestIDE录制的脚本，针对无法识别的控件使用了UIAutomation进行控件定位，测试报告使用了Allure。
+用例设计方案：
+1、采用pytest框架结构进行用例设计，在实际的测试用例中通过subprocess.run()方法来执行.air文件，达到操作控件的目的。操作完毕，利用Airtest的断言方式（如assert_exists）进行断言。需要注意的是，在.air文件需要避免用例关联，否则无法与pytest框架conftest用例前置和后置进行更好的关联。

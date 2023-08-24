@@ -1,0 +1,25 @@
+[15:20:43][ERROR]<airtest.core.api> Traceback (most recent call last):
+  File "E:\Anaconda\lib\site-packages\airtest\cli\runner.py", line 72, in runTest
+    exec(compile(code.encode("utf-8"), pyfilepath, 'exec'), self.scope)
+  File "E:\project\PrecisionSuit100-Pytest+Airtest+UIautomation+Allure\air\test_login.air\test_login.py", line 5, in <module>
+    from configs.config import *
+ModuleNotFoundError: No module named 'configs'
+
+======================================================================
+ERROR: runTest (airtest.cli.runner.AirtestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Anaconda\lib\site-packages\airtest\cli\runner.py", line 75, in runTest
+    six.reraise(*sys.exc_info())
+  File "E:\Anaconda\lib\site-packages\six.py", line 693, in reraise
+    raise value
+  File "E:\Anaconda\lib\site-packages\airtest\cli\runner.py", line 72, in runTest
+    exec(compile(code.encode("utf-8"), pyfilepath, 'exec'), self.scope)
+  File "E:\project\PrecisionSuit100-Pytest+Airtest+UIautomation+Allure\air\test_login.air\test_login.py", line 5, in <module>
+    from configs.config import *
+ModuleNotFoundError: No module named 'configs'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (errors=1)
