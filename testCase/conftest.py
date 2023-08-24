@@ -5,10 +5,9 @@
 # @Site :
 # @File : conftest.py
 # @Software : PyCharm
-import time
 
-import pytest, subprocess
-from configs.config import *
+import pytest
+
 from utils.common import *
 
 

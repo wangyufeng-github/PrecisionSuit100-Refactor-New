@@ -15,7 +15,7 @@ import pyautogui
 import win32gui
 import win32con
 import pygetwindow as gw
-from airtest.core.api import connect_device
+from airtest.core.api import connect_device,G,init_device
 import win32gui
 import psutil
 from configs.config import *
@@ -42,12 +42,24 @@ def connect_to_window(window_handle):
     :param window_handle:
     :return:
     """
+    # window_handle = get_window_handle()
     try:
         connect_device("Windows:///" + str(window_handle))
-        print("链接窗口成功")
+        print(f"句柄{window_handle}:窗口链接成功")
     except Exception as e:
         raise Exception("链接窗口失败:" + str(e))
 
+
+def reconnect_window():
+    """
+    自动获取重新获取窗口句柄进行重连
+    :return:
+    """
+    try:
+        current_handle = get_window_handle()
+        connect_to_window(current_handle)
+    except Exception as e:
+        raise Exception("重新链接窗口失败")
 
 def kill_process_by_name(process_name):
     """
@@ -113,6 +125,11 @@ if __name__ == '__main__':
     # print(judge_image_exist("tpl1692772230855"))
     # while True:
     #     time.sleep(2)
-    handle = get_window_handle()
-    print(handle)
+    # handle = get_window_handle()
+    # print(handle)
     # print(win32gui.FindWindow(None,"LoginWindow"))
+
+
+    # handle = get_window_handle()
+    # connect_to_window(handle)
+    reconnect_window()
