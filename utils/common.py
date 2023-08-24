@@ -28,13 +28,12 @@ def get_window_handle():
     :return:
     """
     try:
-        hwnd = win32gui.FindWindow(None,"LoginWindow")
+        hwnd = win32gui.FindWindow(None, "LoginWindow")
         if hwnd == 0:
-            hwnd = win32gui.FindWindow(None,"PrecisionSuit100")
+            hwnd = win32gui.FindWindow(None, "PrecisionSuit100")
         return hwnd
     except Exception:
         raise Exception("windows handle is not found!")
-
 
 
 def connect_to_window(window_handle):
