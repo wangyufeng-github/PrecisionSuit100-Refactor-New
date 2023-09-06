@@ -15,13 +15,31 @@ from assertpy import *
 
 class TestLogin:
     def test_login(self):
-        subprocess.run(["airtest", "run", air_path + r"\test_login.air"])
-        time.sleep(2)
-        # 登录成功后断言搜索框是否存在
-        result = judge_image_exist("test_login")
-        assert_exists(Template(r"E:\project\PrecisionSuit100-Pytest+Airtest+UIautomation+Allure\image\template\test_login.png"))
-        assert_that(result).is_true()
+        try:
+            result = subprocess.run(
+                ["airtest", "run", air_path + r"\test_login.air"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,  # 文本模式，以便捕获文本输出
+                check=True  # 检查返回代码以捕获异常
+            )
 
+            # 处理标准输出和标准错误输出
+            # stdout_output = result.stdout
+            # stderr_output = result.stderr
+
+            # print("标准输出:")
+            # print(stdout_output)
+            #
+            # print("标准错误输出:")
+            # print(stderr_output)
+
+        except subprocess.CalledProcessError as e:
+            # 处理命令行命令引发的异常
+            # print(f"命令行命令执行异常，返回代码: {e.returncode}")
+            # print(f"标准输出: {e.stdout}")
+            # print(f"标准错误输出: {e.stderr}")
+            pytest.fail("用例执行失败,请通过日志定位问题")
 
 
 if __name__ == '__main__':
