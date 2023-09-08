@@ -12,15 +12,15 @@ import logging
 from configs.config import log_path
 
 
-def logger(fileLog=True, name=__name__):
+def logger(log_file_name, fileLog=True, name=__name__):
     """
     日志收集器
-    :param fileLog: 用于控制日志为文件输出或控制台输出
-    :param name:模块名称
+    :param log_file_name: 日志文件名
+    :param name: 模块名称
     :return:
     """
     # 日志文件路径
-    logDir = f'{log_path}/{datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.log'
+    logDir = f'{log_path}/{log_file_name}.log'
     # 创建日志收集器对象
     logObject = logging.getLogger(name)
     # 设置日志级别为INFO
@@ -43,8 +43,6 @@ def logger(fileLog=True, name=__name__):
     return logObject
 
 
-log = logger()
-
 if __name__ == '__main__':
-    log = logger()
-    log.info('我是日志')
+    log = logger('用户登录功能测试')
+    log.info('我是示例日志')

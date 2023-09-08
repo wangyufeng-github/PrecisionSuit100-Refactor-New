@@ -6,20 +6,15 @@
 # @File : common.py
 # @Software : PyCharm
 import os.path
-import time
-
-import cv2 as cv
 import subprocess
-
+import configparser
+import cv2 as cv
+import psutil
 import pyautogui
 import win32gui
-import win32con
-import pygetwindow as gw
-from airtest.core.api import connect_device, G, init_device
-import win32gui
-import psutil
+from airtest.core.api import connect_device
+
 from configs.config import *
-from utils.log import log
 
 
 def get_window_handle():
@@ -119,6 +114,48 @@ def judge_image_exist(templateImage, confidencevalue=0.7):
         return True
 
 
+def clear_folder(folder_path):
+    """
+    清空文件夹中的文件
+    :param folder_path:
+    :return:
+    """
+    try:
+        # 遍历文件夹中的所有文件
+        for filename in os.listdir(folder_path):
+            file_path = os.path.join(folder_path, filename)
+            # 检查文件是否是文件而不是子文件夹
+            if os.path.isfile(file_path):
+                # 删除文件
+                os.remove(file_path)
+        print(f"文件夹 {folder_path} 中的文件已成功删除。")
+    except Exception as e:
+        print(f"清空文件夹 {folder_path} 中的文件时发生错误：{str(e)}")
+
+
+def get_config_value(config_file_path, section, field):
+    """
+    读取配置文件获取用户信息学
+    :param config_file_path:配置文件路径
+    :param section:USER or PASSWORD
+    :param field:username or password
+    :return: 用户名或密码
+    """
+    # 创建一个ConfigParser对象
+    config = configparser.ConfigParser()
+
+    # 读取配置文件并指定编码为GBK
+    try:
+        config.read(config_file_path, encoding='utf-8')
+    except FileNotFoundError:
+        return None
+
+    # 检查配置文件中是否存在指定的节和字段
+    if section in config and field in config[section]:
+        return config[section][field]
+
+    return None
+
 if __name__ == '__main__':
     # window_title = "LoginWindow"
     # window_handle = get_window_handle(window_title)
@@ -133,4 +170,6 @@ if __name__ == '__main__':
 
     # handle = get_window_handle()
     # connect_to_window(handle)
-    reconnect_window()
+    # reconnect_window()
+    # clear_folder(r"E:\project\PrecisionSuit100-Pytest+Airtest+UIautomation+Allure\outFiles\logs")
+    print(get_config_value(user_info_path,"USER","username"))

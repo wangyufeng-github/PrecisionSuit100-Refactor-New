@@ -23,3 +23,5 @@ image_path = os.path.join(root_path, 'image')
 app_process_name = "PrecisionSuit100Application.exe"
 # 可执行程序路径
 app_path = r"C:\wemed\PrecisionSuit100\PrecisionSuit100Application.exe"
+# 配置文件路径
+user_info_path = os.path.join(root_path,'data\\user_info.ini')

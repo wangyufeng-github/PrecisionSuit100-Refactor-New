@@ -6,20 +6,19 @@
 # @File : conftest.py
 # @Software : PyCharm
 
-import pytest
-
+import pytest,time
+from configs.config import log_path,app_path
 from utils.common import *
 
 
 @pytest.fixture(scope="session", autouse=True)
 def start_app():
-    subprocess.Popen(r"C:\wemed\PrecisionSuit100\PrecisionSuit100Application.exe", cwd=r"C:\wemed\PrecisionSuit100")
-    time.sleep(5)
-    # window_handle = get_window_handle("LoginWindow")
-    # connect_to_window(window_handle=window_handle)
+    # 清空日志文件
+    clear_folder(log_path)
+    subprocess.Popen(app_path, cwd=os.path.dirname(app_path))
+    time.sleep(3)
     yield
     kill_process_by_name(process_name=app_process_name)
-
 
 if __name__ == '__main__':
     start_application(app_path)
