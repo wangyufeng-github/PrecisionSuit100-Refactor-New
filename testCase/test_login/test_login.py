@@ -18,10 +18,11 @@ class TestLogin:
         try:
             result = subprocess.run(
                 ["airtest", "run", air_path + r"\test_login.air"],
+                # ["python",air_path+r"\test_login.air\test_login.py"],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=False,  # 文本模式，以便捕获文本输出
-                check=True  # 检查返回代码以捕获异常
+                check=True,  # 检查返回代码以捕获异常
             )
 
             # 处理标准输出和标准错误输出
