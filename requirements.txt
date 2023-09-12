@@ -1,0 +1,8 @@
+airtest==1.2.10.2
+assertpy==1.1
+opencv_python_headless==4.2.0.34
+psutil==5.4.7
+PyAutoGUI==0.9.53
+pytest==7.1.2
+pywin32==223
+win32gui==221.6
