@@ -121,16 +121,28 @@ def clear_folder(folder_path):
     :return:
     """
     try:
-        # 遍历文件夹中的所有文件
-        for filename in os.listdir(folder_path):
-            file_path = os.path.join(folder_path, filename)
-            # 检查文件是否是文件而不是子文件夹
+        # 检查文件夹是否存在
+        if not os.path.isdir(folder_path):
+            print(f"路径 {folder_path} 不是一个文件夹.")
+            return
+
+        # 获取文件夹中的文件列表
+        files = os.listdir(folder_path)
+
+        # 如果文件夹为空，则不进行任何处理
+        if len(files) == 0:
+            print(f"文件夹 {folder_path} 为空，不需要删除文件.")
+            return
+
+        # 遍历文件列表，删除每个文件
+        for file_name in files:
+            file_path = os.path.join(folder_path, file_name)
             if os.path.isfile(file_path):
-                # 删除文件
                 os.remove(file_path)
-        print(f"文件夹 {folder_path} 中的文件已成功删除。")
+                print(f"已删除文件: {file_path}")
+        print("文件删除成功.")
     except Exception as e:
-        print(f"清空文件夹 {folder_path} 中的文件时发生错误：{str(e)}")
+        print(f"删除文件出错: {str(e)}")
 
 
 def get_config_value(config_file_path, section, field):
@@ -161,7 +173,8 @@ if __name__ == '__main__':
     # window_handle = get_window_handle(window_title)
     # connect_to_window(window_handle)
     # time.sleep(5)
-    print(judge_image_exist("test_login"))
+    # print(judge_image_exist("test_login"))
+    # print(cv.__version__)
     # while True:
     #     time.sleep(2)
     # handle = get_window_handle()
@@ -171,5 +184,5 @@ if __name__ == '__main__':
     # handle = get_window_handle()
     # connect_to_window(handle)
     # reconnect_window()
-    # clear_folder(r"E:\project\PrecisionSuit100-Pytest+Airtest+UIautomation+Allure\outFiles\logs")
+    clear_folder(report_path)
     # print(get_config_value(user_info_path, "USER", "username"))

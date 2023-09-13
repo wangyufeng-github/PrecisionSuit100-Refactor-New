@@ -1,6 +1,6 @@
 ## ignore this file ##
 .idea/
 .pytest_cache
-/outFiles/logs/*.log
-/outFiles/reports/*.json
-.iml
+*.log
+*.json
+*.iml
