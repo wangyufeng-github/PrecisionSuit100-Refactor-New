@@ -170,4 +170,4 @@ if __name__ == '__main__':
     # connect_to_window(handle)
     # reconnect_window()
     # clear_folder(r"E:\project\PrecisionSuit100-Pytest+Airtest+UIautomation+Allure\outFiles\logs")
-    # print(get_config_value(user_info_path,"USER","username"))
+    print(get_config_value(user_info_path, "USER", "username"))
