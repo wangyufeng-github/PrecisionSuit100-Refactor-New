@@ -6,9 +6,9 @@
 # @File : conftest.py
 # @Software : PyCharm
 
-import pytest,time
-from configs.config import log_path,app_path
-from utils.common import *
+import pytest,time,subprocess,os
+from configs.config import log_path,app_path,app_process_name
+from utils.common import clear_folder,kill_process_by_name,start_application
 
 
 @pytest.fixture(scope="session", autouse=True)
