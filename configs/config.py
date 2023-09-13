@@ -25,3 +25,9 @@ app_process_name = "PrecisionSuit100Application.exe"
 app_path = r"C:\wemed\PrecisionSuit100\PrecisionSuit100Application.exe"
 # 配置文件路径
 user_info_path = os.path.join(root_path,'data\\user_info.ini')
+# 测试用例执行路径
+test_case_path = os.path.join(root_path,'testCase')
+
+
+if __name__ == '__main__':
+    print(test_case_path)
