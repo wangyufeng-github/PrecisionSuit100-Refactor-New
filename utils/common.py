@@ -155,7 +155,7 @@ def get_config_value(config_file_path, section, field):
     return None
 
 if __name__ == '__main__':
-    # window_title = "LoginWindow"
+    window_title = "LoginWindow"
     # window_handle = get_window_handle(window_title)
     # connect_to_window(window_handle)
     # time.sleep(5)
