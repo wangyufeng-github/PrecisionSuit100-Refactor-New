@@ -13,4 +13,4 @@ if __name__ == "__main__":
     # 切换到包含测试文件的目录
     os.chdir(test_case_path)
     # 运行pytest测试
-    pytest.main()
+    pytest.main(["-vs","--alluredir","../outFiles/reports/tmp","--clean-alluredir"])
