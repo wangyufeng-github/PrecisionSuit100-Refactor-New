@@ -20,6 +20,7 @@ def start_app():
     yield
     kill_process_by_name(process_name=app_process_name)
 
+
 if __name__ == '__main__':
     start_application(app_path)
     time.sleep(5)
