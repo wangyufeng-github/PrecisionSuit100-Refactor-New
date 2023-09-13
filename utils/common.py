@@ -159,7 +159,7 @@ if __name__ == '__main__':
     # window_handle = get_window_handle(window_title)
     # connect_to_window(window_handle)
     # time.sleep(5)
-    print(judge_image_exist("test_login"))
+    # print(judge_image_exist("test_login"))
     # while True:
     #     time.sleep(2)
     # handle = get_window_handle()
