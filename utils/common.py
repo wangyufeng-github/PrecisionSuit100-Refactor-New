@@ -10,7 +10,7 @@ import subprocess
 import configparser
 # import cv2 as cv
 import psutil
-import pyautogui
+# import pyautogui
 import win32gui
 from airtest.core.api import connect_device
 
