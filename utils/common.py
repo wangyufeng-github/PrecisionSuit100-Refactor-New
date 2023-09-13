@@ -8,7 +8,7 @@
 import os.path
 import subprocess
 import configparser
-import cv2 as cv
+# import cv2 as cv
 import psutil
 import pyautogui
 import win32gui
@@ -90,28 +90,28 @@ def start_application(app_path):
         pass
 
 
-def judge_image_exist(templateImage, confidencevalue=0.7):
-    """
-    通过截取当前屏幕，判断模板图片是否在当前屏幕中
-    :param self:
-    :param templateImage:
-    :param confidencevalue:
-    :return:
-    """
-    path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "\image\\"
-    image = pyautogui.screenshot()
-    image.save(f'{path}screenshot\screen.png')
-    obj_image = cv.imread(f'{path}screenshot\screen.png')
-    template_path = f'{path}template\{templateImage}.png'
-    template = cv.imread(template_path)
-    # 调用matchTemplate方法进行匹配
-    result = cv.matchTemplate(obj_image, template, cv.TM_CCOEFF_NORMED)
-    # 匹配度
-    similarity = cv.minMaxLoc(result)[1]
-    if similarity < confidencevalue:
-        return False
-    else:
-        return True
+# def judge_image_exist(templateImage, confidencevalue=0.7):
+#     """
+#     通过截取当前屏幕，判断模板图片是否在当前屏幕中
+#     :param self:
+#     :param templateImage:
+#     :param confidencevalue:
+#     :return:
+#     """
+#     path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "\image\\"
+#     image = pyautogui.screenshot()
+#     image.save(f'{path}screenshot\screen.png')
+#     obj_image = cv.imread(f'{path}screenshot\screen.png')
+#     template_path = f'{path}template\{templateImage}.png'
+#     template = cv.imread(template_path)
+#     # 调用matchTemplate方法进行匹配
+#     result = cv.matchTemplate(obj_image, template, cv.TM_CCOEFF_NORMED)
+#     # 匹配度
+#     similarity = cv.minMaxLoc(result)[1]
+#     if similarity < confidencevalue:
+#         return False
+#     else:
+#         return True
 
 
 def clear_folder(folder_path):
@@ -161,7 +161,7 @@ if __name__ == '__main__':
     # window_handle = get_window_handle(window_title)
     # connect_to_window(window_handle)
     # time.sleep(5)
-    # print(judge_image_exist("tpl1692772230855"))
+    print(judge_image_exist("test_login"))
     # while True:
     #     time.sleep(2)
     # handle = get_window_handle()
@@ -172,4 +172,4 @@ if __name__ == '__main__':
     # connect_to_window(handle)
     # reconnect_window()
     # clear_folder(r"E:\project\PrecisionSuit100-Pytest+Airtest+UIautomation+Allure\outFiles\logs")
-    print(get_config_value(user_info_path,"USER","username"))
+    # print(get_config_value(user_info_path,"USER","username"))
