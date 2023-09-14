@@ -24,10 +24,11 @@ app_process_name = "PrecisionSuit100Application.exe"
 # 可执行程序路径
 app_path = r"C:\wemed\PrecisionSuit100\PrecisionSuit100Application.exe"
 # 配置文件路径
-user_info_path = os.path.join(root_path,'data\\user_info.ini')
+user_info_path = os.path.join(root_path, 'data\\user_info.ini')
 # 测试用例执行路径
-test_case_path = os.path.join(root_path,'testCase')
-
+test_case_path = os.path.join(root_path, 'testCase')
+# 虚拟环境python.exe路径
+virtualenv_python = r"E:\env\venv_Precisionsuit100-RF-test\Scripts\python.exe"
 
 if __name__ == '__main__':
     print(test_case_path)

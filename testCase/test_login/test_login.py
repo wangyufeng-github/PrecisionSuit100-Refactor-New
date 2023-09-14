@@ -17,12 +17,11 @@ class TestLogin:
     def test_login(self):
         try:
             result = subprocess.run(
-                ["python", "-m", "airtest", "run", air_path + r"\test_login.air"],
+                [virtualenv_python, "-m", "airtest", "run", air_path + r"\test_login.air"],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=False,  # 文本模式，以便捕获文本输出
                 check=True,  # 检查返回代码以捕获异常
-                shell=True
             )
 
             # 处理标准输出和标准错误输出
