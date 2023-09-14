@@ -36,9 +36,9 @@ class TestLogin:
 
         except subprocess.CalledProcessError as e:
             # 处理命令行命令引发的异常
-            # print(f"命令行命令执行异常，返回代码: {e.returncode}")
-            # print(f"标准输出: {e.stdout}")
-            # print(f"标准错误输出: {e.stderr}")
+            print(f"命令行命令执行异常，返回代码: {e.returncode}")
+            print(f"标准输出: {e.stdout}")
+            print(f"标准错误输出: {e.stderr}")
             pytest.fail("系统登录失败,请通过日志定位问题")
 
 
