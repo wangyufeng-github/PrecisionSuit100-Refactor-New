@@ -1,6 +1,4 @@
 ## ignore this file ##
 .idea/
 .pytest_cache
-*.log
-*.json
 *.iml
